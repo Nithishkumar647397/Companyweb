@@ -20,6 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Read More Buttons for Product Cards
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.product-card');
+            card.classList.toggle('expanded');
+            if (card.classList.contains('expanded')) {
+                btn.textContent = 'Read less';
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                btn.textContent = 'Read more';
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
     // Navbar Scroll Blur
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
