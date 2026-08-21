@@ -297,4 +297,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initHeroCanvas();
     initPipelineCanvas();
+
+    // --- Global Cursor Animation ---
+    const initCursorAnimation = () => {
+        if (prefersReducedMotion) return;
+
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100vw';
+        canvas.style.height = '100vh';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        let particles = [];
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const mouse = { x: -100, y: -100 };
+        
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            
+            for (let i = 0; i < 2; i++) {
+                particles.push({
+                    x: mouse.x,
+                    y: mouse.y,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2,
+                    size: Math.random() * 3 + 1,
+                    life: 1
+                });
+            }
+        });
+
+        const animateCursor = () => {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life -= 0.025;
+                
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                    continue;
+                }
+                
+                ctx.fillStyle = `rgba(0, 229, 255, ${p.life})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#00E5FF';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            requestAnimationFrame(animateCursor);
+        };
+        
+        animateCursor();
+    };
+
+    initCursorAnimation();
 });
