@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             packets.forEach(p => {
                 if (!prefersReducedMotion) p.x += p.speed * 0.8; 
-                ctx.fillStyle = 'rgba(0, 229, 255, 0.4)'; // Cyan packets
+                ctx.fillStyle = 'rgba(0, 229, 255, 0.8)'; // Cyan packets
                 ctx.shadowBlur = 10;
                 ctx.shadowColor = '#00E5FF';
                 ctx.fillRect(p.x, p.y, 2, 2);
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (p.x > nodes[2].x && p.stage === 2) p.stage = 3;
                 if (p.x > nodes[3].x && p.stage === 3) p.stage = 4;
 
-                ctx.fillStyle = p.stage === 4 ? '#00E5FF' : 'rgba(0, 229, 255, 0.4)';
+                ctx.fillStyle = p.stage === 4 ? '#00E5FF' : 'rgba(0, 229, 255, 0.8)';
                 let size = 4;
                 
                 if (p.stage === 4) {
