@@ -4,14 +4,14 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Core Base (Mid-Tone Slate) */
-  --c-bg-primary: #475569;
-  --c-bg-alt: #334155;
-  --c-bg-panel: #64748B;
+  /* Core Base (Deep Indigo) */
+  --c-bg-primary: #0B0914; 
+  --c-bg-alt: #131022;
+  --c-bg-panel: #1A1533;
   
   /* Text */
-  --c-text-primary: #F8FAFC;
-  --c-text-secondary: #E2E8F0;
+  --c-text-primary: #E0E7FF;
+  --c-text-secondary: #A5B4FC;
   
   /* Vibrant Accents */
   --c-cyan: #00E5FF;
@@ -208,7 +208,7 @@ section {
 
 .navbar.scrolled {
   padding: 1rem 0;
-  background: rgba(71, 85, 105, 0.85);
+  background: rgba(11, 9, 20, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--border-subtle);

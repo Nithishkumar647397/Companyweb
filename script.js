@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
-            drawGrid();
+            // drawGrid(); // Grid removed as requested
             updatePackets();
             
             if (!prefersReducedMotion) {
