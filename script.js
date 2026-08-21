@@ -168,10 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const nodeSpacing = width / 5;
             nodes = [
-                { label: 'SENSE', x: nodeSpacing * 1, y: height / 2 },
-                { label: 'ANALYZE', x: nodeSpacing * 2, y: height / 2 },
-                { label: 'PREDICT', x: nodeSpacing * 3, y: height / 2 },
-                { label: 'ACT', x: nodeSpacing * 4, y: height / 2 }
+                { label: 'PLAN', x: nodeSpacing * 1, y: height / 2 },
+                { label: 'DESIGN', x: nodeSpacing * 2, y: height / 2 },
+                { label: 'BUILD', x: nodeSpacing * 3, y: height / 2 },
+                { label: 'LAUNCH', x: nodeSpacing * 4, y: height / 2 }
             ];
         };
 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(0, height/2);
             ctx.lineTo(width, height/2);
-            ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
             ctx.lineWidth = 2;
             ctx.stroke();
         };
@@ -190,30 +190,25 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.textBaseline = 'middle';
 
             nodes.forEach((node, index) => {
-                const isActive = index === 3; // Highlight last node
+                // Highlight node when a packet is moving past it
+                let isActive = packets.some(p => Math.abs(p.x - node.x) < 40);
                 
-                // Node background
-                ctx.fillStyle = isActive ? 'rgba(0, 229, 255, 0.1)' : '#181E2E';
-                ctx.strokeStyle = isActive ? '#00E5FF' : '#1F2937';
-                ctx.lineWidth = 1;
+                // Draw minimal dot on the track
+                ctx.fillStyle = isActive ? '#00E5FF' : 'rgba(255, 255, 255, 0.3)';
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
                 
                 if (isActive) {
-                    ctx.shadowBlur = 15;
+                    ctx.shadowBlur = 10;
                     ctx.shadowColor = '#00E5FF';
                 }
                 
-                // Draw rounded rect 
-                const rectW = 80, rectH = 30;
-                const rectX = node.x - rectW/2, rectY = node.y - rectH/2;
-                
-                ctx.fillRect(rectX, rectY, rectW, rectH);
-                ctx.strokeRect(rectX, rectY, rectW, rectH);
-                
+                ctx.fill();
                 ctx.shadowBlur = 0; // reset
                 
-                // Text
-                ctx.fillStyle = isActive ? '#00E5FF' : '#F3F4F6';
-                ctx.fillText(node.label, node.x, node.y);
+                // Text positioned above the dot
+                ctx.fillStyle = isActive ? '#00E5FF' : '#E0E7FF';
+                ctx.fillText(node.label, node.x, node.y - 20);
             });
         };
 
