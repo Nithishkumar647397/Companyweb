@@ -4,10 +4,10 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Core Base (Whitish) */
-  --c-bg-primary: #F8F9FA;
-  --c-bg-alt: #0f1418;
-  --c-bg-panel: #FFFFFF;
+  /* Core Base (Soft Gray) */
+  --c-bg-primary: #E2E8F0;
+  --c-bg-alt: #CBD5E1;
+  --c-bg-panel: #F1F5F9;
   
   /* Text */
   --c-text-primary: #111827;
@@ -208,7 +208,7 @@ section {
 
 .navbar.scrolled {
   padding: 1rem 0;
-  background: rgba(248, 249, 250, 0.85);
+  background: rgba(226, 232, 240, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--border-subtle);
