@@ -328,14 +328,15 @@ document.addEventListener('DOMContentLoaded', () => {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
             
-            for (let i = 0; i < 2; i++) {
+            // Reduced to 1 particle per move and added a random chance so it's less dense
+            if (Math.random() > 0.3) {
                 particles.push({
                     x: mouse.x,
                     y: mouse.y,
-                    vx: (Math.random() - 0.5) * 2,
-                    vy: (Math.random() - 0.5) * 2,
-                    size: Math.random() * 3 + 1,
-                    life: 1
+                    vx: (Math.random() - 0.5) * 1,
+                    vy: (Math.random() - 0.5) * 1,
+                    size: Math.random() * 2 + 0.5,
+                    life: 0.6
                 });
             }
         });
@@ -347,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let p = particles[i];
                 p.x += p.vx;
                 p.y += p.vy;
-                p.life -= 0.025;
+                p.life -= 0.04;
                 
                 if (p.life <= 0) {
                     particles.splice(i, 1);
@@ -356,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 ctx.fillStyle = `rgba(0, 229, 255, ${p.life})`;
-                ctx.shadowBlur = 10;
+                ctx.shadowBlur = 5;
                 ctx.shadowColor = '#00E5FF';
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
