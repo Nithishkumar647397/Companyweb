@@ -4,23 +4,23 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Core Base (Deep Charcoal/Slate) */
-  --c-bg-primary: #0A0D14;
-  --c-bg-alt: #111520;
-  --c-bg-panel: #181E2E;
+  /* Core Base (Whitish) */
+  --c-bg-primary: #F8F9FA;
+  --c-bg-alt: #0f1418;
+  --c-bg-panel: #FFFFFF;
   
   /* Text */
-  --c-text-primary: #F3F4F6;
-  --c-text-secondary: #9CA3AF;
+  --c-text-primary: #111827;
+  --c-text-secondary: #4B5563;
   
   /* Vibrant Accents */
   --c-cyan: #00E5FF;
   --c-cyan-glow: rgba(0, 229, 255, 0.15);
-  --c-blue: #3E7BFA;
+  --c-blue: #7888ab;
   --c-blue-glow: rgba(62, 123, 250, 0.15);
   
   /* Borders */
-  --border-subtle: 1px solid #1F2937;
+  --border-subtle: 1px solid #E5E7EB;
   --border-accent: 1px solid rgba(0, 229, 255, 0.3);
   --radius: 6px;
   
@@ -77,7 +77,7 @@ h1, h2, h3, h4 {
 }
 
 h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); }
-h3 { font-size: 1.15rem; font-weight: 700; color: #FFFFFF; }
+h3 { font-size: 1.15rem; font-weight: 700; color: var(--c-text-primary); }
 
 p {
   color: var(--c-text-secondary);
@@ -208,7 +208,7 @@ section {
 
 .navbar.scrolled {
   padding: 1rem 0;
-  background: rgba(10, 13, 20, 0.85);
+  background: rgba(248, 249, 250, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--border-subtle);
