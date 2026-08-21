@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return {
             x: 0,
             y: yPos,
-            speed: 0.5 + Math.random() * 1.5,
+            // Move significantly faster (between 6 and 8 pixels per frame)
+            speed: 6.0 + Math.random() * 2.0,
             stage: 0
         };
     };
@@ -213,7 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const updatePackets = () => {
-            if (Math.random() < 0.03 && packets.length < 15) {
+            // Only allow 1 moving dot at a time to keep it clean and minimal
+            if (Math.random() < 0.03 && packets.length < 1) {
                 packets.push(createPacket(height / 2));
             }
 
@@ -248,16 +250,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const initStaticPackets = () => {
-            const positions = [width*0.15, width*0.35, width*0.55, width*0.75, width*0.95];
-            positions.forEach(x => {
-                let p = createPacket(height / 2);
-                p.x = x;
-                if (p.x > nodes[0].x) p.stage = 1;
-                if (p.x > nodes[1].x) p.stage = 2;
-                if (p.x > nodes[2].x) p.stage = 3;
-                if (p.x > nodes[3].x) p.stage = 4;
-                packets.push(p);
-            });
+            // Just one static dot in the middle for reduced motion
+            let p = createPacket(height / 2);
+            p.x = width / 2;
+            if (p.x > nodes[0].x) p.stage = 1;
+            if (p.x > nodes[1].x) p.stage = 2;
+            if (p.x > nodes[2].x) p.stage = 3;
+            if (p.x > nodes[3].x) p.stage = 4;
+            packets.push(p);
         }
 
         const animate = () => {
