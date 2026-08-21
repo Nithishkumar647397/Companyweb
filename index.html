@@ -47,8 +47,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Static) -->
+    <!-- Hero Section -->
     <header class="hero-section">
+        <canvas id="hero-bg-canvas" class="bg-canvas fade-canvas"></canvas>
         <div class="container hero-content fade-in">
             <h1 class="hero-quote">
                 "We engineer intelligent systems capable of processing physical reality into scalable action."
@@ -68,7 +69,78 @@
             <div class="intro-text">
                 <span class="eyebrow-mono">CORPORATE IDENTITY</span>
                 <h2>Architecting infrastructure for an automated tomorrow.</h2>
-                <p>Orvanta is a parent technology company operating at the intersection of engineering, artificial intelligence, and physical data. We build the foundational platforms that allow global ecosystems to function with unprecedented intelligence, efficiency, and scale.</p>
+                <p>Orvanta is a parent technology company operating at the intersection of engineering, artificial intelligence, and physical data. We build the foundational platforms that allow global ecosystems to function with unprecedented intelligence, efficiency, and scale. By fusing deep engineering with AI and data architectures, we translate real-world complexity into scalable, automated products.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision" class="vision-mission-section dark-section">
+        <div class="container fade-in">
+            <div class="vm-grid">
+                <div class="vm-block">
+                    <span class="eyebrow-mono">VISION</span>
+                    <h2 class="giant-statement">A fully automated, intelligent global infrastructure.</h2>
+                </div>
+                <div class="vm-block">
+                    <span class="eyebrow-mono">MISSION</span>
+                    <h2 class="giant-statement">To build platforms that translate real-world complexity into actionable clarity.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology-section">
+        <div class="container fade-in">
+            <div class="section-header">
+                <span class="eyebrow-mono">ARCHITECTURE</span>
+                <h2>The Automation Pipeline</h2>
+                <p>The underlying framework across all our engineering verticals.</p>
+            </div>
+
+            <div class="pipeline-container">
+                <canvas id="main-pipeline-canvas"></canvas>
+            </div>
+            
+            <div class="grid-4 pipeline-labels">
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 01</span>
+                    <h3>Sensing / IoT</h3>
+                    <p>High-fidelity data capture from physical environments.</p>
+                </div>
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 02</span>
+                    <h3>Computer Vision & ML</h3>
+                    <p>Pattern analysis and environmental recognition.</p>
+                </div>
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 03</span>
+                    <h3>Decision Systems</h3>
+                    <p>Predictive modeling and algorithmic routing.</p>
+                </div>
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 04</span>
+                    <h3>Automated Action</h3>
+                    <p>Executing physical and digital interventions.</p>
+                </div>
+            </div>
+
+            <!-- Capability Grid -->
+            <div class="section-header" style="margin-top: 6rem;">
+                <span class="eyebrow-mono">CAPABILITIES</span>
+                <h2>Core Disciplines</h2>
+            </div>
+            <div class="grid-capability">
+                <div class="cap-item">AI</div>
+                <div class="cap-item">ML</div>
+                <div class="cap-item">Computer Vision</div>
+                <div class="cap-item">Data Analytics</div>
+                <div class="cap-item">Cloud</div>
+                <div class="cap-item">Mobile</div>
+                <div class="cap-item">Web</div>
+                <div class="cap-item">IoT</div>
+                <div class="cap-item">Robotics</div>
             </div>
         </div>
     </section>
@@ -116,22 +188,6 @@
         </div>
     </section>
 
-    <!-- Vision & Mission (Dark Accent Section) -->
-    <section id="vision" class="vision-mission-section dark-section">
-        <div class="container fade-in">
-            <div class="vm-grid">
-                <div class="vm-block">
-                    <span class="eyebrow-mono highlight-blue">VISION</span>
-                    <h2 class="giant-statement">A fully automated, intelligent global infrastructure.</h2>
-                </div>
-                <div class="vm-block">
-                    <span class="eyebrow-mono">MISSION</span>
-                    <h2 class="giant-statement">To build platforms that translate real-world complexity into actionable clarity.</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Differentiators Section -->
     <section class="differentiators-section">
         <div class="container fade-in">
@@ -174,85 +230,27 @@
                 <div class="team-card">
                     <div class="team-info">
                         <h3>Sanjay R</h3>
-                        <span class="eyebrow-mono">Technology</span>
+                        <span class="eyebrow-mono">Director, Technology</span>
                     </div>
                 </div>
                 <div class="team-card">
                     <div class="team-info">
                         <h3>Hemasundar B</h3>
-                        <span class="eyebrow-mono">Product</span>
+                        <span class="eyebrow-mono">Director, Product</span>
                     </div>
                 </div>
                 <div class="team-card">
                     <div class="team-info">
                         <h3>Naveen N</h3>
-                        <span class="eyebrow-mono">Operations</span>
+                        <span class="eyebrow-mono">Director, Operations</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section id="technology" class="technology-section">
-        <div class="container fade-in">
-            <div class="section-header">
-                <span class="eyebrow-mono">ARCHITECTURE</span>
-                <h2>The Automation Pipeline</h2>
-                <p>The underlying framework across all our engineering verticals.</p>
-            </div>
-
-            <!-- Static Labeled SVG Pipeline -->
-            <div class="svg-pipeline-container">
-                <svg viewBox="0 0 1000 250" class="pipeline-svg">
-                    <!-- Tracks -->
-                    <line x1="100" y1="100" x2="900" y2="100" stroke="#E2E8F0" stroke-width="2" />
-                    <line x1="100" y1="100" x2="900" y2="100" stroke="#3E7BFA" stroke-width="2" stroke-dasharray="4 8" />
-                    
-                    <!-- Nodes -->
-                    <!-- SENSE -->
-                    <rect x="100" y="70" width="160" height="60" rx="2" class="svg-node" />
-                    <text x="180" y="105" class="svg-label">SENSING / IOT</text>
-                    <text x="180" y="150" class="svg-desc">Data Capture</text>
-                    
-                    <!-- ANALYZE -->
-                    <rect x="340" y="70" width="160" height="60" rx="2" class="svg-node" />
-                    <text x="420" y="105" class="svg-label">CV & ML</text>
-                    <text x="420" y="150" class="svg-desc">Pattern Analysis</text>
-                    
-                    <!-- PREDICT -->
-                    <rect x="580" y="70" width="160" height="60" rx="2" class="svg-node" />
-                    <text x="660" y="105" class="svg-label">DECISION SYSTEMS</text>
-                    <text x="660" y="150" class="svg-desc">Predictive Models</text>
-                    
-                    <!-- ACT -->
-                    <rect x="820" y="70" width="160" height="60" rx="2" class="svg-node accent-node" />
-                    <text x="900" y="105" class="svg-label accent-text">AUTOMATED ACTION</text>
-                    <text x="900" y="150" class="svg-desc">Physical & Digital Output</text>
-                </svg>
-            </div>
-
-            <!-- Capability Grid -->
-            <div class="section-header" style="margin-top: 4rem;">
-                <span class="eyebrow-mono">CAPABILITIES</span>
-                <h2>Core Disciplines</h2>
-            </div>
-            <div class="grid-capability">
-                <div class="cap-item">AI</div>
-                <div class="cap-item">ML</div>
-                <div class="cap-item">Computer Vision</div>
-                <div class="cap-item">Data Analytics</div>
-                <div class="cap-item">Cloud</div>
-                <div class="cap-item">Mobile</div>
-                <div class="cap-item">Web</div>
-                <div class="cap-item">IoT</div>
-                <div class="cap-item">Robotics</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Roadmap -->
-    <section class="roadmap-section alt-bg">
+    <section class="roadmap-section">
         <div class="container fade-in">
             <div class="section-header">
                 <span class="eyebrow-mono">LIFECYCLE</span>
@@ -276,7 +274,7 @@
     </section>
 
     <!-- Collaboration CTA -->
-    <section class="cta-band">
+    <section class="cta-band alt-bg">
         <div class="container fade-in">
             <h2>Let's build what's next.</h2>
             <a href="#contact" class="btn-primary">Connect With Us</a>
@@ -284,23 +282,23 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section alt-bg">
+    <section id="contact" class="contact-section">
         <div class="container fade-in">
             <div class="contact-grid">
                 <div class="contact-info">
                     <h2>Contact Us</h2>
                     <ul class="contact-list">
                         <li><span class="eyebrow-mono">HQ</span> Tamil Nadu, India</li>
-                        <li><span class="eyebrow-mono">Email</span> <a href="mailto:[official email]">[official email]</a></li>
-                        <li><span class="eyebrow-mono">Web</span> <a href="https://[orvanta.com]">[orvanta.com]</a></li>
-                        <li><span class="eyebrow-mono">LinkedIn</span> <a href="#">[LinkedIn Profile]</a></li>
+                        <li><span class="eyebrow-mono">Email</span> <a href="mailto:[official email]" class="hover-blue">[official email]</a></li>
+                        <li><span class="eyebrow-mono">Web</span> <a href="https://[orvanta.com]" class="hover-blue">[orvanta.com]</a></li>
+                        <li><span class="eyebrow-mono">LinkedIn</span> <a href="#" class="hover-blue">[LinkedIn Profile]</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (Dark Accent Section) -->
+    <!-- Footer -->
     <footer class="footer dark-section">
         <div class="container">
             <div class="footer-content">

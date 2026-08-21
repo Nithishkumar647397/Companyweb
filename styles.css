@@ -1,5 +1,5 @@
 /* 
-  Orvanta Technologies - MNC Light Design System 
+  Orvanta Technologies - Final MNC Design System 
 */
 
 /* --- Design Tokens --- */
@@ -29,6 +29,7 @@
   --space-xl: 8rem;
   
   /* Z-index */
+  --z-canvas: -2;
   --z-base: 1;
   --z-nav: 100;
 }
@@ -65,9 +66,10 @@ h1, h2, h3, h4 {
   font-weight: 600;
   line-height: 1.15;
   margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
 }
 
-h2 { font-size: clamp(2rem, 3.5vw, 2.5rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); }
 h3 { font-size: 1.25rem; }
 
 p {
@@ -81,7 +83,7 @@ a {
   transition: color 0.3s ease;
 }
 
-a:hover {
+a.hover-blue:hover, a:hover {
   color: var(--c-blue);
 }
 
@@ -101,10 +103,6 @@ a:hover {
   color: rgba(10,11,13,0.3);
   display: block;
   margin-bottom: 1rem;
-}
-
-.highlight-blue {
-  color: var(--c-blue);
 }
 
 /* --- Layout Utilities --- */
@@ -166,10 +164,12 @@ section {
   transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus {
   background-color: var(--c-blue);
   border-color: var(--c-blue);
   color: #FFFFFF;
+  outline: none;
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -188,9 +188,11 @@ section {
   transition: all 0.3s ease;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover, .btn-secondary:focus {
   background-color: var(--c-text-primary);
   color: #FFFFFF;
+  outline: none;
+  transform: translateY(-2px);
 }
 
 /* Navigation */
@@ -240,6 +242,7 @@ section {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   color: var(--c-text-secondary);
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -295,22 +298,36 @@ section {
   display: flex;
 }
 
-/* Hero Section (Static Light) */
+/* Hero Section */
 .hero-section {
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 8rem;
+  padding-top: 5rem;
+  overflow: hidden;
+}
+
+.bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-canvas);
+}
+
+.fade-canvas {
+  opacity: 0.3; /* very subtle, drawn lightly */
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .hero-quote {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -369,10 +386,17 @@ section {
   background: var(--c-bg-primary);
   border: var(--border-hairline);
   border-radius: var(--radius);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(62, 123, 250, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .alt-bg .card {
-  background: var(--c-bg-primary); /* Cards inside alt bg sit on white */
+  background: var(--c-bg-primary); 
 }
 
 .border-top-accent {
@@ -391,54 +415,24 @@ section {
 }
 
 .giant-statement {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   line-height: 1.3;
   margin-top: 1rem;
 }
 
-/* SVG Pipeline (Static) */
-.svg-pipeline-container {
+/* Technology Canvas */
+.pipeline-container {
   width: 100%;
-  overflow-x: auto;
-  margin-bottom: 4rem;
-  padding: 2rem 0;
+  height: 120px;
+  margin-bottom: 2rem;
+  position: relative;
+  background: var(--c-bg-primary);
 }
 
-.pipeline-svg {
+#main-pipeline-canvas {
   width: 100%;
-  min-width: 800px;
-  height: auto;
-}
-
-.svg-node {
-  fill: var(--c-bg-alt);
-  stroke: var(--c-text-primary);
-  stroke-width: 1;
-}
-
-.accent-node {
-  fill: rgba(62, 123, 250, 0.05);
-  stroke: var(--c-blue);
-  stroke-width: 2;
-}
-
-.svg-label {
-  fill: var(--c-text-primary);
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 600;
-  text-anchor: middle;
-}
-
-.accent-text {
-  fill: var(--c-blue);
-}
-
-.svg-desc {
-  fill: var(--c-text-secondary);
-  font-family: var(--font-body);
-  font-size: 12px;
-  text-anchor: middle;
+  height: 100%;
+  display: block;
 }
 
 /* Capability Grid */
@@ -457,6 +451,12 @@ section {
   font-size: 0.875rem;
   text-align: center;
   color: var(--c-text-primary);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.cap-item:hover {
+  color: var(--c-blue);
+  background: rgba(62,123,250,0.02);
 }
 
 /* Roadmap */
@@ -483,7 +483,7 @@ section {
 .hr-node.highlight-blue-border {
   color: var(--c-blue);
   border-color: var(--c-blue);
-  background: rgba(62,123,250,0.05);
+  background: rgba(62,123,250,0.03);
 }
 
 .hr-line {
@@ -503,11 +503,17 @@ section {
 .team-card {
   border: var(--border-hairline);
   background: var(--c-bg-primary);
+  border-radius: var(--radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .team-info {
   padding: 1.5rem;
-  border-bottom: var(--border-hairline);
 }
 
 .team-info h3 {
@@ -566,11 +572,16 @@ section {
   letter-spacing: 0.05em;
 }
 
-/* --- Scroll Reveal (Simple Fade) --- */
+.footer-legal {
+  font-size: 0.875rem;
+  color: #9AA0AC;
+}
+
+/* --- Scroll Reveal (Fade + Slight Slide-up) --- */
 .fade-in {
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in.visible {
@@ -607,6 +618,10 @@ section {
     grid-template-columns: 1fr;
   }
   
+  .pipeline-labels.grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
   .footer-content {
     flex-direction: column;
     gap: 1rem;
@@ -621,7 +636,9 @@ section {
     opacity: 1;
     transform: none;
   }
-  
+  .card:hover, .btn-primary:hover, .btn-secondary:hover, .team-card:hover {
+    transform: none;
+  }
   html {
     scroll-behavior: auto;
   }
