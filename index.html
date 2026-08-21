@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,7 +18,7 @@
     <!-- Sticky Nav -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">ORVANTA</a>
+            <a href="#" class="nav-logo">ORVANTA<span>TECH</span></a>
             
             <div class="nav-links">
                 <a href="#about">About</a>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="nav-actions">
-                <a href="#contact" class="btn-primary btn-cta">Let's Build</a>
+                <a href="#contact" class="btn-primary btn-cta">Initiate Project</a>
                 <button class="menu-toggle" aria-label="Toggle Menu">
                     <span></span>
                     <span></span>
@@ -49,22 +49,22 @@
 
     <!-- Hero Section -->
     <header class="hero-section">
-        <canvas id="hero-bg-canvas" class="bg-canvas fade-canvas"></canvas>
+        <canvas id="hero-bg-canvas" class="bg-canvas"></canvas>
         <div class="container hero-content fade-in">
-            <h1 class="hero-quote">
-                "We engineer intelligent systems capable of processing physical reality into scalable action."
+            <h1 class="hero-quote text-gradient">
+                We engineer intelligent systems capable of processing physical reality into scalable action.
             </h1>
-            <p class="hero-tagline">Building what comes next.</p>
-            <p class="hero-subheadline">Establishing the foundational infrastructure for an automated global economy.</p>
+            <p class="hero-tagline">AUTOMATION INFRASTRUCTURE</p>
+            <p class="hero-subheadline">Establishing the foundational framework for a fully automated global economy.</p>
             <div class="hero-ctas">
-                <a href="#products" class="btn-primary">Explore Portfolio</a>
+                <a href="#products" class="btn-primary">Explore Portfolio &rarr;</a>
                 <a href="#contact" class="btn-secondary">Partner With Us</a>
             </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="intro-section">
+    <section id="about" class="intro-section alt-bg">
         <div class="container fade-in">
             <div class="intro-text">
                 <span class="eyebrow-mono">CORPORATE IDENTITY</span>
@@ -74,82 +74,11 @@
         </div>
     </section>
 
-    <!-- Vision & Mission -->
-    <section id="vision" class="vision-mission-section dark-section">
-        <div class="container fade-in">
-            <div class="vm-grid">
-                <div class="vm-block">
-                    <span class="eyebrow-mono">VISION</span>
-                    <h2 class="giant-statement">A fully automated, intelligent global infrastructure.</h2>
-                </div>
-                <div class="vm-block">
-                    <span class="eyebrow-mono">MISSION</span>
-                    <h2 class="giant-statement">To build platforms that translate real-world complexity into actionable clarity.</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section id="technology" class="technology-section">
-        <div class="container fade-in">
-            <div class="section-header">
-                <span class="eyebrow-mono">ARCHITECTURE</span>
-                <h2>The Automation Pipeline</h2>
-                <p>The underlying framework across all our engineering verticals.</p>
-            </div>
-
-            <div class="pipeline-container">
-                <canvas id="main-pipeline-canvas"></canvas>
-            </div>
-            
-            <div class="grid-4 pipeline-labels">
-                <div class="pipeline-label">
-                    <span class="eyebrow-mono">STAGE 01</span>
-                    <h3>Sensing / IoT</h3>
-                    <p>High-fidelity data capture from physical environments.</p>
-                </div>
-                <div class="pipeline-label">
-                    <span class="eyebrow-mono">STAGE 02</span>
-                    <h3>Computer Vision & ML</h3>
-                    <p>Pattern analysis and environmental recognition.</p>
-                </div>
-                <div class="pipeline-label">
-                    <span class="eyebrow-mono">STAGE 03</span>
-                    <h3>Decision Systems</h3>
-                    <p>Predictive modeling and algorithmic routing.</p>
-                </div>
-                <div class="pipeline-label">
-                    <span class="eyebrow-mono">STAGE 04</span>
-                    <h3>Automated Action</h3>
-                    <p>Executing physical and digital interventions.</p>
-                </div>
-            </div>
-
-            <!-- Capability Grid -->
-            <div class="section-header" style="margin-top: 6rem;">
-                <span class="eyebrow-mono">CAPABILITIES</span>
-                <h2>Core Disciplines</h2>
-            </div>
-            <div class="grid-capability">
-                <div class="cap-item">AI</div>
-                <div class="cap-item">ML</div>
-                <div class="cap-item">Computer Vision</div>
-                <div class="cap-item">Data Analytics</div>
-                <div class="cap-item">Cloud</div>
-                <div class="cap-item">Mobile</div>
-                <div class="cap-item">Web</div>
-                <div class="cap-item">IoT</div>
-                <div class="cap-item">Robotics</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Products Teaser Section -->
-    <section id="products" class="products-section alt-bg">
+    <section id="products" class="products-section">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="eyebrow-mono">DOMAINS OF OPERATION</span>
+                <span class="eyebrow-mono">DOMAINS OF OPERATION (MULTI-SELECT TARGETS)</span>
                 <h2>What We Build</h2>
             </div>
             
@@ -188,23 +117,94 @@
         </div>
     </section>
 
+    <!-- Vision & Mission -->
+    <section id="vision" class="vision-mission-section">
+        <div class="container fade-in">
+            <div class="vm-grid">
+                <div class="vm-block">
+                    <span class="eyebrow-mono">SYSTEM VISION</span>
+                    <h2 class="giant-statement text-gradient">A fully automated, intelligent global infrastructure.</h2>
+                </div>
+                <div class="vm-block">
+                    <span class="eyebrow-mono">OPERATIONAL MISSION</span>
+                    <h2 class="giant-statement">To build platforms that translate real-world complexity into actionable clarity.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology-section">
+        <div class="container fade-in">
+            <div class="section-header">
+                <span class="eyebrow-mono">ARCHITECTURE PIPELINE</span>
+                <h2>The Automation Pipeline</h2>
+                <p>The underlying framework across all our engineering verticals.</p>
+            </div>
+
+            <div class="pipeline-container">
+                <canvas id="main-pipeline-canvas"></canvas>
+            </div>
+            
+            <div class="grid-4 pipeline-labels">
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 01</span>
+                    <h3 style="color:#00E5FF;">Sensing / IoT</h3>
+                    <p>High-fidelity data capture from physical environments.</p>
+                </div>
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 02</span>
+                    <h3 style="color:#00E5FF;">Computer Vision & ML</h3>
+                    <p>Pattern analysis and environmental recognition.</p>
+                </div>
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 03</span>
+                    <h3 style="color:#00E5FF;">Decision Systems</h3>
+                    <p>Predictive modeling and algorithmic routing.</p>
+                </div>
+                <div class="pipeline-label">
+                    <span class="eyebrow-mono">STAGE 04</span>
+                    <h3 style="color:#00E5FF;">Automated Action</h3>
+                    <p>Executing physical and digital interventions.</p>
+                </div>
+            </div>
+
+            <!-- Capability Grid -->
+            <div class="section-header" style="margin-top: 6rem;">
+                <span class="eyebrow-mono">CAPABILITIES</span>
+                <h2>Core Disciplines</h2>
+            </div>
+            <div class="grid-capability">
+                <div class="cap-item">AI</div>
+                <div class="cap-item">ML</div>
+                <div class="cap-item">Computer Vision</div>
+                <div class="cap-item">Data Analytics</div>
+                <div class="cap-item">Cloud</div>
+                <div class="cap-item">Mobile</div>
+                <div class="cap-item">Web</div>
+                <div class="cap-item">IoT</div>
+                <div class="cap-item">Robotics</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Differentiators Section -->
-    <section class="differentiators-section">
+    <section class="differentiators-section alt-bg">
         <div class="container fade-in">
             <div class="section-header">
                 <span class="eyebrow-mono">HOW WE DIFFER</span>
                 <h2>The Orvanta Standard</h2>
             </div>
             <div class="grid-3">
-                <div class="card border-top-accent">
+                <div class="card">
                     <h3>Systems, Not Features</h3>
                     <p>We do not build isolated software applications. We engineer deep, interconnected platforms that structurally solve complex ecosystem inefficiencies.</p>
                 </div>
-                <div class="card border-top-accent">
+                <div class="card">
                     <h3>Physical to Digital</h3>
                     <p>Our core competency lies in bridging the gap between tangible reality (IoT, robotics, human kinematics) and algorithmic decision-making.</p>
                 </div>
-                <div class="card border-top-accent">
+                <div class="card">
                     <h3>Asymmetric Leverage</h3>
                     <p>We target structural bottlenecks where a highly precise technological intervention yields exponential operational scale.</p>
                 </div>
@@ -213,7 +213,7 @@
     </section>
 
     <!-- Leadership Section -->
-    <section id="team" class="team-section alt-bg">
+    <section id="team" class="team-section">
         <div class="container fade-in">
             <div class="section-header">
                 <span class="eyebrow-mono">LEADERSHIP</span>
@@ -225,28 +225,28 @@
                     <img src="assets/nithishkumar.png" alt="Nithishkumar S" class="team-avatar">
                     <div class="team-info">
                         <h3>Nithishkumar S</h3>
-                        <span class="eyebrow-mono">Founder</span>
+                        <span class="eyebrow-mono" style="margin-bottom:0;">Founder</span>
                     </div>
                 </div>
                 <div class="team-card">
                     <img src="assets/sanjay.png" alt="Sanjay R" class="team-avatar">
                     <div class="team-info">
                         <h3>Sanjay R</h3>
-                        <span class="eyebrow-mono">Director, Technology</span>
+                        <span class="eyebrow-mono" style="margin-bottom:0;">Director, Technology</span>
                     </div>
                 </div>
                 <div class="team-card">
                     <img src="assets/hemasundar.jpg" alt="Hemasundar B" class="team-avatar">
                     <div class="team-info">
                         <h3>Hemasundar B</h3>
-                        <span class="eyebrow-mono">Director, Product</span>
+                        <span class="eyebrow-mono" style="margin-bottom:0;">Director, Product</span>
                     </div>
                 </div>
                 <div class="team-card">
                     <img src="assets/naveen.png" alt="Naveen N" class="team-avatar">
                     <div class="team-info">
                         <h3>Naveen N</h3>
-                        <span class="eyebrow-mono">Director, Operations</span>
+                        <span class="eyebrow-mono" style="margin-bottom:0;">Director, Operations</span>
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
     </section>
 
     <!-- Roadmap -->
-    <section class="roadmap-section">
+    <section class="roadmap-section alt-bg">
         <div class="container fade-in">
             <div class="section-header">
                 <span class="eyebrow-mono">LIFECYCLE</span>
@@ -272,16 +272,8 @@
                 <div class="hr-line"></div>
                 <div class="hr-node">Scale</div>
                 <div class="hr-line"></div>
-                <div class="hr-node highlight-blue-border">Global</div>
+                <div class="hr-node highlight-cyan-border">Global</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Collaboration CTA -->
-    <section class="cta-band alt-bg">
-        <div class="container fade-in">
-            <h2>Let's build what's next.</h2>
-            <a href="#contact" class="btn-primary">Connect With Us</a>
         </div>
     </section>
 
@@ -289,8 +281,8 @@
     <section id="contact" class="contact-section">
         <div class="container fade-in">
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Contact Us</h2>
+                <div class="contact-card">
+                    <h2 style="margin-bottom:2rem;">Contact Us</h2>
                     <ul class="contact-list">
                         <li><span class="eyebrow-mono">HQ</span> Tamil Nadu, India</li>
                         <li><span class="eyebrow-mono">Email</span> <a href="mailto:[official email]" class="hover-blue">[official email]</a></li>
@@ -303,10 +295,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer dark-section">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">ORVANTA</div>
+                <div class="footer-logo">ORVANTA<span style="color:#00E5FF;">TECH</span></div>
                 <div class="footer-legal">
                     &copy; <span id="year"></span> Orvanta Technologies. All rights reserved.
                 </div>

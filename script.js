@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // --- Canvas Animations ---
+    // --- Canvas Animations (High-Tech Theme) ---
 
     // Utility: Create Packet
     const createPacket = (yPos) => {
         return {
             x: 0,
             y: yPos,
-            speed: 0.5 + Math.random() * 1.0,
+            speed: 0.5 + Math.random() * 1.5,
             stage: 0
         };
     };
 
-    // 1. Hero Background Canvas (Extremely subtle, faint lines/dots)
+    // 1. Hero Background Canvas (Tech Grid & Packets)
     const initHeroCanvas = () => {
         const canvas = document.getElementById('hero-bg-canvas');
         if (!canvas) return;
@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const drawGrid = () => {
-            ctx.strokeStyle = 'rgba(10,11,13,0.03)';
+            ctx.strokeStyle = 'rgba(0, 229, 255, 0.05)';
             ctx.lineWidth = 1;
-            const gridSize = 100;
+            const gridSize = 120;
             
             for(let x = 0; x < width; x += gridSize) {
                 ctx.beginPath();
@@ -99,21 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const updatePackets = () => {
-            if (Math.random() < 0.02 && packets.length < 15) {
+            if (Math.random() < 0.04 && packets.length < 25) {
                 packets.push(createPacket(Math.random() * height));
             }
 
             packets.forEach(p => {
-                if (!prefersReducedMotion) p.x += p.speed * 0.5; // Very slow
-                ctx.fillStyle = 'rgba(62, 123, 250, 0.15)'; // Faint blue
+                if (!prefersReducedMotion) p.x += p.speed * 0.8; 
+                ctx.fillStyle = 'rgba(0, 229, 255, 0.4)'; // Cyan packets
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#00E5FF';
                 ctx.fillRect(p.x, p.y, 2, 2);
+                ctx.shadowBlur = 0; // reset
             });
 
             packets = packets.filter(p => p.x < width);
         };
 
         const initStaticPackets = () => {
-            for(let i=0; i<15; i++) {
+            for(let i=0; i<25; i++) {
                 let p = createPacket(Math.random() * height);
                 p.x = Math.random() * width;
                 packets.push(p);
@@ -149,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 2. Main Tech Pipeline Canvas (Looping diagram motion)
+    // 2. Main Tech Pipeline Canvas (Looping dashboard motion)
     const initPipelineCanvas = () => {
         const canvas = document.getElementById('main-pipeline-canvas');
         if (!canvas) return;
@@ -176,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(0, height/2);
             ctx.lineTo(width, height/2);
-            ctx.strokeStyle = 'rgba(10,11,13,0.1)';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.lineWidth = 2;
             ctx.stroke();
         };
 
@@ -187,26 +190,35 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.textBaseline = 'middle';
 
             nodes.forEach((node, index) => {
-                // Node background
-                ctx.fillStyle = '#FFFFFF';
-                ctx.strokeStyle = index === 3 ? '#3E7BFA' : 'rgba(10,11,13,0.2)';
-                ctx.lineWidth = index === 3 ? 2 : 1;
+                const isActive = index === 3; // Highlight last node
                 
-                // Draw rounded rect (simplified fallback for canvas)
+                // Node background
+                ctx.fillStyle = isActive ? 'rgba(0, 229, 255, 0.1)' : '#181E2E';
+                ctx.strokeStyle = isActive ? '#00E5FF' : '#1F2937';
+                ctx.lineWidth = 1;
+                
+                if (isActive) {
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = '#00E5FF';
+                }
+                
+                // Draw rounded rect 
                 const rectW = 80, rectH = 30;
                 const rectX = node.x - rectW/2, rectY = node.y - rectH/2;
                 
                 ctx.fillRect(rectX, rectY, rectW, rectH);
                 ctx.strokeRect(rectX, rectY, rectW, rectH);
                 
+                ctx.shadowBlur = 0; // reset
+                
                 // Text
-                ctx.fillStyle = index === 3 ? '#3E7BFA' : '#0A0B0D';
+                ctx.fillStyle = isActive ? '#00E5FF' : '#F3F4F6';
                 ctx.fillText(node.label, node.x, node.y);
             });
         };
 
         const updatePackets = () => {
-            if (Math.random() < 0.02 && packets.length < 10) {
+            if (Math.random() < 0.03 && packets.length < 15) {
                 packets.push(createPacket(height / 2));
             }
 
@@ -220,15 +232,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (p.x > nodes[2].x && p.stage === 2) p.stage = 3;
                 if (p.x > nodes[3].x && p.stage === 3) p.stage = 4;
 
-                ctx.fillStyle = p.stage === 4 ? '#3E7BFA' : 'rgba(10,11,13,0.3)';
+                ctx.fillStyle = p.stage === 4 ? '#00E5FF' : 'rgba(0, 229, 255, 0.4)';
                 let size = 4;
                 
+                if (p.stage === 4) {
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#00E5FF';
+                }
+
                 // Slight pulse if moving
                 if (!prefersReducedMotion && p.stage > 0 && p.stage < 4) {
                     size = 4 + Math.sin(p.x * 0.1) * 1.5;
                 }
                 
                 ctx.fillRect(p.x - size/2, p.y - size/2, size, size);
+                ctx.shadowBlur = 0; // reset
             });
 
             packets = packets.filter(p => p.x < width);
