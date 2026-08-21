@@ -505,11 +505,20 @@ section {
   background: var(--c-bg-primary);
   border-radius: var(--radius);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .team-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.team-avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-bottom: var(--border-hairline);
+  background: var(--c-bg-alt);
 }
 
 .team-info {
