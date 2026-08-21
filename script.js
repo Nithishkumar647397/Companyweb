@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const drawGrid = () => {
-            ctx.strokeStyle = 'rgba(0, 229, 255, 0.05)';
+            ctx.strokeStyle = 'rgba(0, 229, 255, 0.2)';
             ctx.lineWidth = 1;
             const gridSize = 120;
             
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(0, height/2);
             ctx.lineTo(width, height/2);
-            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
             ctx.lineWidth = 2;
             ctx.stroke();
         };
